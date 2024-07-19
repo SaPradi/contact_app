@@ -1,0 +1,145 @@
+header.navbar {
+
+    background-color: white;
+    box-shadow: 0px 10px 6px -5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+nav img.navbar__image-brand {
+    width: 60px;
+}
+/* menu mobile*/
+.nav__menu{
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+nav svg.nav__menu-icon{
+    height: 3rem;
+    width: 3rem;
+}
+nav svg.nav__menu-icon path{
+    fill: var(--primary-color);
+}
+.nav__menu__drop-down{
+    position: fixed;
+    right: -160px;
+    width: 0;
+    bottom: 0;
+    top: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    background-color: var(--primary-color);
+    box-shadow: -26px 0px 31px -28px rgba(0,0,0,0.1);
+    z-index: 1001;
+    height: 100%;
+    
+}
+
+
+div.open{
+    right: 0;
+    width: 160px;
+    animation: slide-in 0.5s ease forwards;
+}
+
+.nav__menu__drop-down.closed{
+    right: -160px;
+    width: 0px;
+    animation: slide-out 0.5s ease forwards;
+}
+
+
+/* options list */
+ul.navbar__options {
+    display: none;
+    gap: 5em;
+}
+li.navbar__options__option {
+    list-style: none;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+li.navbar__options__option a {
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+li.navbar__options__option a.active {
+    color: var(--primary-color);   
+}
+li.navbar__options__option button.option__button {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: none;
+    font-size: 1.2rem;
+    width: 7rem;
+    height: 2.2rem;
+    border-radius: .5rem;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    background-color: var(--primary-color);
+    cursor: pointer;
+    z-index: 1;
+}
+button.option__button img.option__button__img {
+    width: 23px;
+    height: 23px;
+}
+
+
+
+/* animation */
+@keyframes slide-in {
+
+    from {
+        right: -160px;
+        width: 0px;
+    }
+
+    to {
+        right: 0;
+        width: 160px;
+    }
+}
+
+@keyframes slide-out {
+
+    from {
+        right: 0;
+        width: 160px;
+    }
+
+    to {
+        right: -160px;
+        width: 0px;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+    nav{
+        padding: 1rem 2rem 1rem 2rem;
+    }
+    .nav__menu{
+        display: none;
+    }
+
+    .nav__menu__drop-down{
+        display: none;
+    }
+
+    ul.navbar__options{
+        display: flex;
+    }
+
+}

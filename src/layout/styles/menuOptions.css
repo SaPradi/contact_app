@@ -1,0 +1,98 @@
+.menu{
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    margin-top: 20px;
+    position: relative;
+
+}
+.menu__header {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: .7rem;
+}
+.menu__header svg{
+    width: 1.2rem;
+    height: 1.2rem;
+}
+.menu__header button{
+    border: none;
+    background: none;
+}
+
+ul.menu-options{
+    margin-top: 3rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+li.menu-options__option{
+    max-width: 9rem;
+    width: 9rem;
+    display: flex;
+    justify-content: center;
+    
+
+}
+li.menu-options__option a{
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: 1.5rem;
+    display: flex;
+    gap: .5rem;
+    transition: all 0.3s ease;   
+}
+.menu-options__option a svg path{
+    transition: all 0.3s ease;
+}
+.menu-options__option a.active,
+.menu-options__option a.active svg path
+{
+    fill:rgba(0, 0, 0, 0.605) ;
+    color: rgba(0, 0, 0, 0.605);
+    
+}
+
+.menu-options__option:hover a,
+.menu-options__option:hover svg path{
+    fill:rgba(0, 0, 0, 0.336) ;
+    color: rgba(0, 0, 0, 0.336) ;
+}
+
+li.menu-options__option a svg,
+.menu-options__option svg
+{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+li.menu-options__option a svg path,
+.menu__header svg path
+{
+
+    fill: var(--white-color);
+
+}
+
+
+button.option__button {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: none;
+    width: 7rem;
+    height: 2rem;
+    border-radius: .4rem;
+    background-color: var(--white-color);
+    cursor: pointer;
+    font-size: 1.3rem;
+}
+
+img.option__button__img {
+    width: 10rem;
+    height: 10rem;
+}

@@ -1,0 +1,34 @@
+:root{
+
+    --primary-color:#C1D72F;
+    --secondary-color: #323232;
+    --warning-color:#CF6679;
+    --dark-color: #231F20;
+    --white-color: #ffff;
+}
+
+*{
+    margin: 0 ;
+    padding: 0;
+}
+body{
+    font-family: sans-serif;
+}
+
+.list-contact{
+
+
+    display: grid;
+    grid-template-columns: repeat(Auto-fill, 256px);
+    place-content: center;
+    place-items: center;
+    gap: 1.5rem;
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+
+
+
+
+}
