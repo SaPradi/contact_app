@@ -3,8 +3,10 @@
     --primary-color:#C1D72F;
     --secondary-color: #323232;
     --warning-color:#CF6679;
+    --error-color:#e91414;
     --dark-color: #231F20;
     --white-color: #ffff;
+
 }
 
 *{

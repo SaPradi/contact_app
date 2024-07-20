@@ -12,7 +12,7 @@ const Overview:React.FC = () => {
     <div className="overview">
 
       <Favorites />
-      <Contacts/>
+      <Contacts />
 
     </div>
   )

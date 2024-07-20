@@ -1,7 +1,6 @@
 import { FC } from "react"
 import TitleHeader from "../../layout/components/TitleHeader"
 import CardContact from "../../layout/components/CardContact"
-import { Contact } from "../../interfaces";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 

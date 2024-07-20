@@ -12,7 +12,7 @@ const Navbar:React.FC = () => {
   
   const {dropdownMenuVisible} = useSelector((state:RootState)=> state.menu)
 
-  const dispath = useDispatch<AppDispatch>();
+  const dispatch = useDispatch<AppDispatch>();
 
   return (
     <header className="navbar">
@@ -21,7 +21,7 @@ const Navbar:React.FC = () => {
         <img className="navbar__image-brand" src={backgrounds.brand} alt="brand_image" />
         
         {/* Menu mobile */}
-        <button className="nav__menu" aria-controls="aria-controls" id='button_menu' onClick={()=> dispath(toggleDropdownMenu())} >
+        <button className="nav__menu" aria-controls="aria-controls" id='button_menu' onClick={()=> dispatch(toggleDropdownMenu())} >
           <svg xmlns="http://www.w3.org/2000/svg" className="nav__menu-icon" viewBox="0 0 24 24">
             <path  d="M2 6a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1m0 6.032a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1m1 5.033a1 1 0 1 0 0 2h18a1 1 0 0 0 0-2z"/>
           </svg>
@@ -48,7 +48,7 @@ const Navbar:React.FC = () => {
 
           <li className="navbar__options__option" id="optionFour" role="option">
             
-            <button onClick={()=> dispath(toggleFormMenu())} className="option__button" id="buttonOptionNew" role="optionBottom" aria-haspopup="true"
+            <button onClick={()=> dispatch(toggleFormMenu())} className="option__button" id="buttonOptionNew" role="optionBottom" aria-haspopup="true"
                 aria-expanded="false" aria-controls="new-menu">
                 <img className="option__button__img" src={icons.add} alt="" />
                 <p>New</p>

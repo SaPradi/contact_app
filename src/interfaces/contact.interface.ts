@@ -4,9 +4,22 @@ export interface Contact{
   email:string;
   first_name:string;
   last_name:string;
-  avatar:string;
+  avatar:string | null;
   liked:boolean;
+};
+
+export interface ContactData{
+  email:string;
+  first_name:string;
+  last_name:string;
+  liked:boolean
+  [key: string]: any;
 }
+
+export interface ContactErrorsData{
+  [key: string]: any; 
+}
+
 export interface ContactResponse{
   data: Contact;
   support: {

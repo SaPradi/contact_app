@@ -23,8 +23,7 @@ div.new-contact-form__container.closed{
 form.new-contact-form__container__form{
   display: flex;
   flex-direction: column;
-  padding: 4rem ;
-  gap: 1rem;
+  padding: 3.1rem ;
 
 }
 
@@ -34,17 +33,47 @@ input[type="email"].new-contact-form__container__form__input
 {
 
   height: 3rem;
-  padding-left:2rem;
+  padding:0 2rem;
   background-color: #ffffff6d;
   border: none;
   color:  var(--secondary-color);
   border-bottom: 2px solid white;
 }
 
+/* Errors */
+div.new-contact-form__container__form__input__error-container{
+  height: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+div.new-contact-form__container__form__input__error-container p{
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--error-color);
+}
+input[type="text"].new-contact-form__container__form__input--error,
+input[type="email"].new-contact-form__container__form__input--error
+{
+
+  animation: shake-top 0.3s ease-in-out both;
+  box-shadow: 0px 0px 43px -18px var(--warning-color);
+  border-color:var(--warning-color) ;
+  background-color: rgba(241, 132, 132, 0.377);
+}
+input[type="text"].new-contact-form__container__form__input--error:focus,
+input[type="email"].new-contact-form__container__form__input--error:focus{
+  box-shadow: 0px 0px 43px -18px var(--warning-color);
+  border-color:var(--warning-color) ;
+}
+
+
 div.new-contact-form__content-favorites{
+  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
 
@@ -70,8 +99,23 @@ button.new-contact-form__container__form__botton{
   text-transform: uppercase;
   box-shadow: 0px 10px 7px -8px rgba(0,0,0,0.1);
   letter-spacing: 1px;
+  cursor: pointer;
+}
+button.new-contact-form__container__form__botton:hover{
+  transition: all .3s  ease-in;
+  background-color: #dbdfc2;
+}
+button.new-contact-form__container__form__botton:disabled{
+  background-color: rgb(223, 217, 217);
+  cursor: no-drop;
 }
 
+
+
+button.new-contact-form__container__form__botton svg{
+  height: 1.6rem;
+  width: 1.6rem;
+}
 
 /* Desktop */
 @media screen and (min-width: 1024px) {
@@ -104,3 +148,34 @@ button.new-contact-form__container__form__botton{
     height: 0px;
   }
 }
+
+
+/* animation snake */
+
+@keyframes shake-top {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    transform-origin: 50% 0;
+  }
+  10% {
+    transform: rotate(0.6deg);
+  }
+  10%,
+  40%,
+  60% {
+    transform: rotate(-0.6deg);
+  }
+  30%,
+  50%,
+  70% {
+    transform: rotate(0.6deg);
+  }
+  80% {
+    transform: rotate(-0.6deg);
+  }
+  90% {
+    transform: rotate(0.6deg);
+  }
+}
+

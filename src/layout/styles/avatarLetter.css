@@ -1,0 +1,14 @@
+.avatar{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width:7rem ;
+    height: 7rem;
+    
+}
+.avatar__letter{
+    color: white;
+    font-size: 3rem;
+}

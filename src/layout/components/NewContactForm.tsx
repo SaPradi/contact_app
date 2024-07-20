@@ -1,10 +1,39 @@
 import { useSelector } from 'react-redux';
 import '../styles/newContactForm.css';
-import { RootState } from '../../store/store';
+import { AppDispatch, RootState } from '../../store/store';
+import useForm from '../../hook/useForm';
+import LoadingIcon from '../../icons/LoadingIcon';
+import { useDispatch } from 'react-redux';
+import { fetchCreateContact } from '../../store/contactSlice';
+import { toggleFormMenu } from '../../store/menuSlice';
+
+
+const initialForm = {
+    email:'',
+    first_name: '',
+    last_name: '',
+    liked:false
+}
 
 const NewContactForm: React.FC = () => {
 
-    const { formMenuVisible } = useSelector((state:RootState)=> state.menu)
+    const dispatch = useDispatch<AppDispatch>();
+
+    const { formMenuVisible } = useSelector((state:RootState)=> state.menu);
+    const {  } = useSelector((state:RootState)=> state.contact);
+    const {changeHandler,errors,formValid,formValues,blurHandler,isTouched,clear} = useForm({initialForm})
+
+    const submitHandler = (e: React.FormEvent<HTMLFormElement>)=>{
+        e.preventDefault();
+        if(formValid){
+            console.log(formValues)
+            dispatch(fetchCreateContact(formValues));
+            dispatch(toggleFormMenu())
+            clear();
+        }
+    }
+
+
 
     return (
 
@@ -12,43 +41,80 @@ const NewContactForm: React.FC = () => {
 
             <div className={`new-contact-form__container ${ formMenuVisible === null ? '' : formMenuVisible ? 'open' : 'closed'}`}>
 
-                <form className="new-contact-form__container__form" aria-describedby="form-description">
+                
+
+                <form noValidate onSubmit={submitHandler} className="new-contact-form__container__form" aria-describedby="form-description">
+                    <div className="new-contact-form__container__form__input__error-container">
+                        { isTouched.first_name && errors.first_name && <p> {errors.first_name}* </p>}
+                    </div>
                     <input
-                        className="new-contact-form__container__form__input"
+                        className={`new-contact-form__container__form__input ${ isTouched.first_name && errors.first_name ? 'new-contact-form__container__form__input--error' : ''}`}
                         type="text"
-                        name="first-name"
+                        name="first_name"
                         id="fist-name"
+                        value={formValues.first_name}
+                        onChange={changeHandler}
                         aria-required="true"
                         placeholder="First name"
+                        onBlur={blurHandler}
                     />
+
+                    <div className='new-contact-form__container__form__input__error-container'>
+                        {  isTouched.last_name && errors.last_name && <p> {errors.last_name}* </p>}
+                    </div>
                     <input
-                        className="new-contact-form__container__form__input"
+                      className={`new-contact-form__container__form__input ${ isTouched.last_name && errors.last_name ? 'new-contact-form__container__form__input--error' : ''}`}
                         type="text"
-                        name="last-name"
-                        id="last-name"
+                        name="last_name"
+                        id="last_name"
                         aria-required="true"
                         placeholder="Last name"
+                        value={formValues.last_name}
+                        onChange={changeHandler}
+                        onBlur={blurHandler}
                     />
+                    
+                    <div className="new-contact-form__container__form__input__error-container">
+                        { isTouched.email &&   errors.email && <p> {errors.email}* </p>}
+                    </div>
                     <input
-                        className="new-contact-form__container__form__input"
+                        className={`new-contact-form__container__form__input ${ isTouched.email && errors.email ? 'new-contact-form__container__form__input--error' : ''}`}
                         type="email"
                         name="email"
                         id="email"
                         aria-required="true"
                         placeholder="Email"
+                        value={formValues.email}
+                        onChange={changeHandler}
+                        onBlur={blurHandler}
                     />
+                   
                     <div className="new-contact-form__content-favorites">
-                        <p>Enable like favorite</p>
+                        <label htmlFor="liked">Enable like favorite</label>
                         <input
                             className="new-contact-form__container__form__input"
                             type="checkbox"
-                            name="enable_favorite"
-                            id="enable_favorite"
+                            name="liked"
+                            id="liked"
+                            checked={formValues.liked}
+                            onChange={changeHandler}
                         />
 
                     </div>
+                    
 
-                    <button className="new-contact-form__container__form__botton" type="submit">Save</button>
+                    <button 
+                        className="new-contact-form__container__form__botton" 
+                        type="submit"
+                        disabled={!formValid}
+                    >
+                        {
+                            false
+                            ?<LoadingIcon/>
+                            : 'Save'
+                        }
+
+                    </button>
                 </form>
 
             </div>
