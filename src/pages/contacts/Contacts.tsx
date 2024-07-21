@@ -21,22 +21,30 @@ const Contacts: FC = () => {
     return (
         <section className="contact">
             <TitleHeader title="Contact List" />
-            <div className="list-contact">
-                {loadingContacts ? (
-                    <ListSkeletonCardContact />
-                ) : (
-                    <>
-                        {contactWithFavorites &&
-                            favorites.map((contact) => (
-                                <CardContact key={contact.id} contact={contact} />
-                            ))}
-                        {contacts.map((contact) => (
-                            <CardContact key={contact.id} contact={contact} />
-                        ))}
-                    </>
-                )}
+            {
+                loadingContacts
+                ?
+                <ListSkeletonCardContact/>
+                :
+                <>
+                            <div className="list-contact">
+                {
+                    contactWithFavorites
+                    &&
+                    favorites.map((contact) => (
+                        <CardContact key={contact.id} contact={contact} />
+                    ))
+
+                }
+                {contacts.map((contact) => (
+                    <CardContact key={contact.id} contact={contact} />
+                ))}
 
             </div>
+                </>
+            }
+
+
         </section>
     )
 }
