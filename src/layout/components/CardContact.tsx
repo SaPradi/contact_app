@@ -4,8 +4,10 @@ import HeartIcon from '../../icons/HeartIcon';
 import { Contact } from '../../interfaces';
 import '../styles/cardContact.css';
 import AvatarLetter from './AvatarLetter';
-import { AppDispatch } from '../../store/store';
+import { AppDispatch, RootState } from '../../store/store';
 import { toggleLiked } from '../../store/contactSlice';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 interface CardContactProps {
     contact: Contact
@@ -14,18 +16,32 @@ interface CardContactProps {
 const CardContact: React.FC<CardContactProps> = ({ contact }) => {
 
     const dispatch = useDispatch<AppDispatch>();
-
+    const { statusAnimationCard } = useSelector((state:RootState)=> state.contact)
+    const [typeAnimation,setTypeAnimation] = useState<string | null>(null)
 
     const handleLikedContact = ()=>{
 
-
-        dispatch(toggleLiked({contact}))
+        setTypeAnimation('out')
+    
+        setTimeout(()=>{
+            dispatch(toggleLiked({contact}))
+        },500)
 
     }
 
+    useEffect(()=>{
+        if(statusAnimationCard){
+            if(contact.id === statusAnimationCard.contactId){
+                setTypeAnimation(statusAnimationCard.status)
+            }
+        }
+    },[]);
+
+
     return (
 
-        <article className="card">
+        <article 
+            className={`card ${contact.liked ? 'card--liked' : ''} ${ typeAnimation  !== null ? typeAnimation === 'out' ? 'card--animation--out' : 'card--animation--in' : ''}`}>
 
             <div className={`card__container-avatar ${contact.liked ? 'card__container-avatar--liked' : ''}`}>
 

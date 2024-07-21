@@ -10,7 +10,10 @@ article.card{
     border-radius: .4rem;
     padding: .7rem .2rem;
 }
-
+article.card--liked{
+    border: 1px solid var(--primary-color);
+    box-shadow: 0px 0px 29px 0px #c1d72f3a;
+}
 
 .card__container-avatar{
     height: 7rem;
@@ -91,4 +94,32 @@ article.card{
 
 .card__footer__button--liked svg path{
     fill: var(--warning-color);
+}
+
+.card--animation--in {
+    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+.card--animation--out {
+    animation: scale-out-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+@keyframes scale-out-center {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 1;
+    }
+}
+@keyframes scale-in-center {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }

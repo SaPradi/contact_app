@@ -39,3 +39,19 @@ export interface ContactsResponse{
     text: string;
   };
 }
+
+
+
+export interface IstatusAnimationCard{
+  status: 'in' | 'out';
+  contactId:number;
+}
+
+export interface ContactsState {
+    contacts: Contact[];
+    favorites: Contact[];
+    loadingContacts: boolean;
+    loadingCreatedContact: boolean;
+    error: string | null;
+    statusAnimationCard:null|IstatusAnimationCard
+}

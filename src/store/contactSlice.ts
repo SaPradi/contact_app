@@ -1,21 +1,17 @@
 import { AsyncThunk, createAsyncThunk, createSlice, PayloadAction, SerializedError } from '@reduxjs/toolkit';
-import { Contact, ContactResponse, ContactsResponse, ContactData } from '../interfaces';
+import { Contact, ContactResponse, ContactsResponse, ContactData, ContactsState } from '../interfaces';
 import { createConctact, getContacts } from '../services/contact.service';
 import { AppDispatch, RootState } from './store';
 
-export interface ContactsState {
-    contacts: Contact[];
-    favorites: Contact[];
-    loadingContacts: boolean;
-    loadingCreatedContact: boolean;
-    error: string | null
-}
+
+
 type AsyncThunkConfig = {
     state: RootState;
     dispatch: AppDispatch;
     extra: unknown;
     rejectValue: SerializedError;
 };
+
 type ArrayType = 'favorites' | 'contacts';
 
 const mappingContact = (contact: Contact, index: number, totalContacts: number) => {
@@ -30,6 +26,7 @@ const initialState: ContactsState = {
     loadingContacts: false,
     loadingCreatedContact: false,
     error: null,
+    statusAnimationCard: null,
 }
 
 interface toggleLikedParams{
@@ -62,7 +59,7 @@ const contactSlice = createSlice({
 
             const { contact } = action.payload;
             const { liked } = contact;
-          
+            
             const fromArray: ArrayType = liked ? 'favorites' : 'contacts';
             const toArray: ArrayType = liked ? 'contacts' : 'favorites';
           
@@ -70,11 +67,16 @@ const contactSlice = createSlice({
           
             if (fromIndex !== -1) {
               const [removedContact] = state[fromArray].splice(fromIndex, 1);
+
               const addContact = {
                 ...removedContact,
                 liked:!removedContact.liked
               }
               state[toArray].unshift(addContact);
+              state.statusAnimationCard = {
+                status:'in',
+                contactId:addContact.id
+              }
             }
 
         }
