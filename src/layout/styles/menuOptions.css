@@ -35,8 +35,6 @@ li.menu-options__option{
     width: 9rem;
     display: flex;
     justify-content: center;
-    
-
 }
 li.menu-options__option a{
     text-decoration: none;
@@ -53,8 +51,7 @@ li.menu-options__option a{
 .menu-options__option a.active svg path
 {
     fill:rgba(0, 0, 0, 0.605) ;
-    color: rgba(0, 0, 0, 0.605);
-    
+    color: rgba(0, 0, 0, 0.605); 
 }
 
 .menu-options__option:hover a,

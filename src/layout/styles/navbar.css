@@ -72,7 +72,11 @@ li.navbar__options__option {
 }
 li.navbar__options__option a {
     text-decoration: none;
+    transition: all .4s ease;
     color: var(--secondary-color);
+}
+li.navbar__options__option:hover a{
+    color: var(--primary-low-color);
 }
 li.navbar__options__option a.active {
     color: var(--primary-color);   

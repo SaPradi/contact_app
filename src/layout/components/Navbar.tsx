@@ -2,7 +2,6 @@ import { backgrounds, icons } from "../../static";
 import "../styles/navbar.css";
 import { NavLink } from "react-router-dom";
 import MenuOptions from "./MenuOptions";
-// import { useState } from "react";
 import { useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../store/store";
 import { useDispatch } from "react-redux";
