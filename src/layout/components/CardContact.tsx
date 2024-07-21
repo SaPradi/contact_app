@@ -5,7 +5,7 @@ import { Contact } from '../../interfaces';
 import '../styles/cardContact.css';
 import AvatarLetter from './AvatarLetter';
 import { AppDispatch, RootState } from '../../store/store';
-import { toggleLiked } from '../../store/contactSlice';
+import { setStatusAnimationCard, toggleLiked } from '../../store/contactSlice';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -33,6 +33,7 @@ const CardContact: React.FC<CardContactProps> = ({ contact }) => {
         if(statusAnimationCard){
             if(contact.id === statusAnimationCard.contactId){
                 setTypeAnimation(statusAnimationCard.status)
+                dispatch(setStatusAnimationCard(null))
             }
         }
     },[]);

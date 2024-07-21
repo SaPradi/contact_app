@@ -71,7 +71,7 @@ const useForm =  <T extends FormData>({ initialForm }: UseFormProps<T>) => {
     useEffect(() => {
         const hasErrors = Object.values(errors).some(error => error !== '');
         const noEmptyValues = Object.values(formValues).every(value => {
-            if (typeof value === 'boolean') return true; // Los booleanos no se consideran vacíos
+            if (typeof value === 'boolean') return true;
             return value !== '';
         });
         setFormValid(!hasErrors && noEmptyValues);

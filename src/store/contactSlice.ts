@@ -1,5 +1,5 @@
 import { AsyncThunk, createAsyncThunk, createSlice, PayloadAction, SerializedError } from '@reduxjs/toolkit';
-import { Contact, ContactResponse, ContactsResponse, ContactData, ContactsState } from '../interfaces';
+import { Contact, ContactResponse, ContactsResponse, ContactData, ContactsState, IstatusAnimationCard } from '../interfaces';
 import { createConctact, getContacts } from '../services/contact.service';
 import { AppDispatch, RootState } from './store';
 
@@ -55,23 +55,30 @@ const contactSlice = createSlice({
     name: 'contact',
     initialState,
     reducers: {
+        setStatusAnimationCard:(state,action:PayloadAction<null | IstatusAnimationCard>)=>{
+            state.statusAnimationCard = action.payload
+        },
         toggleLiked:(state,action:PayloadAction<toggleLikedParams>)=>{
 
             const { contact } = action.payload;
             const { liked } = contact;
             
+            // add
             const fromArray: ArrayType = liked ? 'favorites' : 'contacts';
+            // remove
             const toArray: ArrayType = liked ? 'contacts' : 'favorites';
-          
+            // indice en array add
+
             const fromIndex = state[fromArray].findIndex(c => c.id === contact.id);
-          
             if (fromIndex !== -1) {
+                // remove
               const [removedContact] = state[fromArray].splice(fromIndex, 1);
 
               const addContact = {
                 ...removedContact,
                 liked:!removedContact.liked
               }
+              // add
               state[toArray].unshift(addContact);
               state.statusAnimationCard = {
                 status:'in',
@@ -119,6 +126,6 @@ const contactSlice = createSlice({
     }
 })
 
-export const {  toggleLiked } = contactSlice.actions;
+export const {  toggleLiked,setStatusAnimationCard } = contactSlice.actions;
 
 export default contactSlice.reducer;
