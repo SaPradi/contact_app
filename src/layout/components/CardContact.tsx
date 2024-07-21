@@ -1,14 +1,28 @@
+import { useDispatch } from 'react-redux';
 import CloseIcon from '../../icons/CloseIcon';
 import HeartIcon from '../../icons/HeartIcon';
 import { Contact } from '../../interfaces';
 import '../styles/cardContact.css';
 import AvatarLetter from './AvatarLetter';
+import { AppDispatch } from '../../store/store';
+import { toggleLiked } from '../../store/contactSlice';
 
 interface CardContactProps {
     contact: Contact
 }
 
 const CardContact: React.FC<CardContactProps> = ({ contact }) => {
+
+    const dispatch = useDispatch<AppDispatch>();
+
+
+    const handleLikedContact = ()=>{
+
+
+        dispatch(toggleLiked({contact}))
+
+    }
+
     return (
 
         <article className="card">
@@ -33,7 +47,7 @@ const CardContact: React.FC<CardContactProps> = ({ contact }) => {
 
             <footer className='card__footer'>
                 <hr />
-                <button className={`card__footer__button ${contact.liked ? 'card__footer__button--liked' : ''}`}>
+                <button onClick={ ()=> handleLikedContact()} className={`card__footer__button ${contact.liked ? 'card__footer__button--liked' : ''}`}>
 
                     {
                         contact.liked

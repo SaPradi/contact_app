@@ -16,6 +16,7 @@ type AsyncThunkConfig = {
     extra: unknown;
     rejectValue: SerializedError;
 };
+type ArrayType = 'favorites' | 'contacts';
 
 const mappingContact = (contact: Contact, index: number, totalContacts: number) => {
     // assign liked the latest 3 contacts
@@ -31,6 +32,9 @@ const initialState: ContactsState = {
     error: null,
 }
 
+interface toggleLikedParams{
+    contact:Contact
+}
 
 export const fetchContacts: AsyncThunk<ContactsResponse, void, AsyncThunkConfig> = createAsyncThunk<ContactsResponse, void, AsyncThunkConfig>(
     'contacts/fetchContacts',
@@ -49,10 +53,32 @@ export const fetchCreateContact: AsyncThunk<ContactResponse, ContactData, AsyncT
     }
 );
 
+
 const contactSlice = createSlice({
     name: 'contact',
     initialState,
-    reducers: {},
+    reducers: {
+        toggleLiked:(state,action:PayloadAction<toggleLikedParams>)=>{
+
+            const { contact } = action.payload;
+            const { liked } = contact;
+          
+            const fromArray: ArrayType = liked ? 'favorites' : 'contacts';
+            const toArray: ArrayType = liked ? 'contacts' : 'favorites';
+          
+            const fromIndex = state[fromArray].findIndex(c => c.id === contact.id);
+          
+            if (fromIndex !== -1) {
+              const [removedContact] = state[fromArray].splice(fromIndex, 1);
+              const addContact = {
+                ...removedContact,
+                liked:!removedContact.liked
+              }
+              state[toArray].unshift(addContact);
+            }
+
+        }
+    },
     extraReducers: (builder) => {
         builder
             // get all contacts
@@ -77,15 +103,11 @@ const contactSlice = createSlice({
             })
             .addCase(fetchCreateContact.fulfilled,(state,action:PayloadAction<ContactResponse>)=>{
                 const newContact:Contact = action.payload.data;
-
                 if(action.payload.data.liked){
                     state.favorites.unshift(newContact)
                 }else{
                     state.contacts.unshift(newContact)
                 }
-
-
-
                 state.loadingCreatedContact = false;
             })
             .addCase(fetchCreateContact.rejected,(state,action)=>{
@@ -95,6 +117,6 @@ const contactSlice = createSlice({
     }
 })
 
-export const { } = contactSlice.actions;
+export const {  toggleLiked } = contactSlice.actions;
 
 export default contactSlice.reducer;
