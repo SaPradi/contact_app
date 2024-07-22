@@ -12,12 +12,12 @@ const ModalOptionTheme: React.FC = () => {
 
     const dispatch = useDispatch<AppDispatch>()
 
-    const handleTheme = (theme:string)=>{
+    const handleTheme = (theme: string) => {
         dispatch(setTheme(theme))
         dispatch(setThemeLocalStorage())
         dispatch(toggleThemeMenu())
     }
-    const handleSystemTheme = ()=>{
+    const handleSystemTheme = () => {
         dispatch(setThemeSystem())
         dispatch(setThemeLocalStorage())
         dispatch(toggleThemeMenu())
@@ -26,17 +26,34 @@ const ModalOptionTheme: React.FC = () => {
     return (
         <ul className='modal-option-theme'>
 
-            <li onClick={()=> handleSystemTheme()} className='modal-option-theme__option' id='darkOption' role='option_theme'>
+            <li 
+                onClick={() => handleSystemTheme()} 
+                className='modal-option-theme__option' 
+                id='systemOption' role='option_theme' 
+                aria-label='system theme'
+            >
                 <SystemThemeIcon />
                 <p>System</p>
             </li>
 
-            <li onClick={ ()=> handleTheme('dark')} className='modal-option-theme__option' id='darkOption' role='option_theme'>
+            <li 
+                onClick={() => handleTheme('dark')} 
+                className='modal-option-theme__option' 
+                id='darkOption' 
+                role='option_theme' 
+                aria-label='dark theme'
+            >
                 <DarkThemeIcon />
                 <p>Dark</p>
             </li>
 
-            <li onClick={()=> handleTheme('light')} className='modal-option-theme__option' id='darkOption' role='option_theme'>
+            <li 
+                onClick={() => handleTheme('light')} 
+                className='modal-option-theme__option' 
+                id='lightOption' 
+                role='option_theme' 
+                aria-label='light theme'
+            >
                 <LightThemeIcon />
                 <p>Light</p>
             </li>

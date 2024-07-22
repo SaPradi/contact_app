@@ -1,6 +1,6 @@
 import { backgrounds } from "../../static";
 import "../styles/navbar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import MenuOptions from "./MenuOptions";
 import { useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../store/store";
@@ -11,18 +11,19 @@ import ButtonTheme from "./ButtonTheme";
 import ModalOptionTheme from "./ModalOptionTheme";
 
 const Navbar: React.FC = () => {
+    const navigate = useNavigate()
 
     const { dropdownMenuVisible, themeMenuVisible} = useSelector((state: RootState) => state.menu)
-
     const dispatch = useDispatch<AppDispatch>();
+
 
     return (
         <header className="navbar">
 
             <nav>
-                <img className="navbar__image-brand" src={backgrounds.brand} alt="brand_image" />
-
-
+                <button className="navbar__brand-button" onClick={ ()=> { navigate('/') } }>
+                    <img className="navbar__brand-button__image" src={backgrounds.brand} alt="brand_image" />
+                </button>
 
                 <div className="nav__menu__contain">
                     <ButtonTheme />
@@ -47,7 +48,6 @@ const Navbar: React.FC = () => {
                     </li>
 
                     <li className='navbar__options__option' id="optionTwo" role="option">
-                        <a href="#" aria-label="Contacts">  </a>
                         <NavLink to='/contacts' aria-label="Contacts">Contacts</NavLink>
                     </li>
 

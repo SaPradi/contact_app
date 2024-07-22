@@ -14,10 +14,15 @@ nav {
     text-align: center;
 }
 
-nav img.navbar__image-brand {
+nav img.navbar__brand-button__image {
     width: 60px;
+    cursor: pointer;
 }
-
+nav .navbar__brand-button{
+    background:none;
+    border: none;
+    
+}
 /* menu mobile*/
 .nav__menu {
     cursor: pointer;

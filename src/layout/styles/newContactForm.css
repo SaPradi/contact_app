@@ -1,181 +1,193 @@
 /* Form new contact */
-div.new-contact-form__container{
-  margin: 0 auto;
-  background-color: var(--primary-color);
-  width: 17rem;
-  border-radius: 0 0 .7rem .7rem;
-  height: 0px;
-  overflow: hidden;
-  transition: all 0.5s ease;
+div.new-contact-form__container {
+    margin: 0 auto;
+    background-color: var(--primary-color);
+    width: 17rem;
+    border-radius: 0 0 .7rem .7rem;
+    height: 0px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+
 
 }
 
-div.new-contact-form__container.open{
-  height: 24.5rem;
-  animation: slide-up 0.5s ease forwards;
+div.new-contact-form__container.open {
+    height: 24.5rem;
+    animation: slide-up 0.5s ease forwards;
 }
 
-div.new-contact-form__container.closed{
-  height: 0;
-  animation: slide-down 0.5s ease forwards;
+div.new-contact-form__container.closed {
+    height: 0;
+    animation: slide-down 0.5s ease forwards;
 }
 
-form.new-contact-form__container__form{
-  display: flex;
-  flex-direction: column;
-  padding: 3.1rem ;
+form.new-contact-form__container__form {
+    display: flex;
+    flex-direction: column;
+    padding: 3.1rem;
 
 }
 
 
 input[type="text"].new-contact-form__container__form__input,
-input[type="email"].new-contact-form__container__form__input
-{
+input[type="email"].new-contact-form__container__form__input {
 
-  height: 3rem;
-  padding:0 2rem;
-  background-color: #ffffff6d;
-  border: none;
-  color:  var(--secondary-color);
-  border-bottom: 2px solid white;
+    height: 3rem;
+    padding: 0 2rem;
+    background-color: #ffffff6d;
+    border: none;
+    color: var(--secondary-color);
+    border-bottom: 2px solid white;
 }
 
 /* Errors */
-div.new-contact-form__container__form__input__error-container{
-  height: 2rem;
-  display: flex;
-  align-items: center;
+div.new-contact-form__container__form__input__error-container {
+    height: 2rem;
+    display: flex;
+    align-items: center;
 }
 
-div.new-contact-form__container__form__input__error-container p{
-  font-size: .8rem;
-  font-weight: 600;
-  color: var(--error-color);
+div.new-contact-form__container__form__input__error-container p {
+    font-size: .8rem;
+    font-weight: 600;
+    color: var(--error-color);
 }
+
 input[type="text"].new-contact-form__container__form__input--error,
-input[type="email"].new-contact-form__container__form__input--error
-{
+input[type="email"].new-contact-form__container__form__input--error {
 
-  animation: shake-top 0.3s ease-in-out both;
-  box-shadow: 0px 0px 43px -18px var(--warning-color);
-  border-color:var(--warning-color) ;
-  background-color: rgba(241, 132, 132, 0.377);
+    animation: shake-top 0.3s ease-in-out both;
+    box-shadow: 0px 0px 43px -18px var(--warning-color);
+    border-color: var(--warning-color);
+    background-color: rgba(241, 132, 132, 0.377);
 }
+
 input[type="text"].new-contact-form__container__form__input--error:focus,
-input[type="email"].new-contact-form__container__form__input--error:focus{
-  box-shadow: 0px 0px 43px -18px var(--warning-color);
-  border-color:var(--warning-color) ;
+input[type="email"].new-contact-form__container__form__input--error:focus {
+    box-shadow: 0px 0px 43px -18px var(--warning-color);
+    border-color: var(--warning-color);
 }
 
 
-div.new-contact-form__content-favorites{
-  margin-top: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
+div.new-contact-form__content-favorites {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
 }
 
 
-div.new-contact-form__content-favorites input[type="checkbox"].new-contact-form__container__form__input{
-  height: 1.3rem;
-  width: 1.3rem;
-}
-input[type="checkbox"]:checked{
-  color: red;
-  background-color: red;
-  border: #323232;
+div.new-contact-form__content-favorites input[type="checkbox"].new-contact-form__container__form__input {
+    height: 1.3rem;
+    width: 1.3rem;
 }
 
-button.new-contact-form__container__form__botton{
-
-  border: none;
-  width: 4rem;
-  height: 2rem;
-  font-weight : 600;
-  background-color: white;
-  margin: 0 auto;
-  border-radius: 6px;
-  text-transform: uppercase;
-  box-shadow: 0px 10px 7px -8px rgba(0,0,0,0.1);
-  letter-spacing: 1px;
-  cursor: pointer;
-}
-button.new-contact-form__container__form__botton:hover{
-  transition: all .3s  ease-in;
-  background-color: #dbdfc2;
-}
-button.new-contact-form__container__form__botton:disabled{
-  background-color: rgb(223, 217, 217);
-  cursor: no-drop;
+input[type="checkbox"]:checked {
+    color: red;
+    background-color: red;
+    border: #323232;
 }
 
+button.new-contact-form__container__form__botton {
+
+    border: none;
+    width: 4rem;
+    height: 2rem;
+    font-weight: 600;
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 6px;
+    text-transform: uppercase;
+    box-shadow: 0px 10px 7px -8px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+button.new-contact-form__container__form__botton:hover {
+    transition: all .3s ease-in;
+    background-color: #dbdfc2;
+}
+
+button.new-contact-form__container__form__botton:disabled {
+    background-color: rgb(223, 217, 217);
+    cursor: no-drop;
+}
 
 
-button.new-contact-form__container__form__botton svg{
-  height: 1.6rem;
-  width: 1.6rem;
+
+button.new-contact-form__container__form__botton svg {
+    height: 1.6rem;
+    width: 1.6rem;
 }
 
 /* Desktop */
 @media screen and (min-width: 1024px) {
 
 
-  div.new-contact-form__container{
-    width: 25rem ;
-  }
+    div.new-contact-form__container {
+        width: 25rem;
+    }
 
 }
 
 
 @keyframes slide-up {
-  
-  from{
-    height: 0px;
-  }
-  to{
-    height: 24.5rem;  
-  }
+
+    from {
+        height: 0px;
+    }
+
+    to {
+        height: 24.5rem;
+    }
 
 }
 
 @keyframes slide-down {
-  
-  from{
-    height: 24.5rem;
-  }
-  to{
-    height: 0px;
-  }
+
+    from {
+        height: 24.5rem;
+    }
+
+    to {
+        display: none;
+        height: 0px;
+    }
 }
 
 
 /* animation snake */
 
 @keyframes shake-top {
-  0%,
-  100% {
-    transform: rotate(0deg);
-    transform-origin: 50% 0;
-  }
-  10% {
-    transform: rotate(0.6deg);
-  }
-  10%,
-  40%,
-  60% {
-    transform: rotate(-0.6deg);
-  }
-  30%,
-  50%,
-  70% {
-    transform: rotate(0.6deg);
-  }
-  80% {
-    transform: rotate(-0.6deg);
-  }
-  90% {
-    transform: rotate(0.6deg);
-  }
-}
 
+    0%,
+    100% {
+        transform: rotate(0deg);
+        transform-origin: 50% 0;
+    }
+
+    10% {
+        transform: rotate(0.6deg);
+    }
+
+    10%,
+    40%,
+    60% {
+        transform: rotate(-0.6deg);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: rotate(0.6deg);
+    }
+
+    80% {
+        transform: rotate(-0.6deg);
+    }
+
+    90% {
+        transform: rotate(0.6deg);
+    }
+}

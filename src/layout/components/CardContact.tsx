@@ -41,8 +41,11 @@ const CardContact: React.FC<CardContactProps> = ({ contact }) => {
 
     return (
 
-        <article 
-            className={`card ${contact.liked ? 'card--liked' : ''} ${ typeAnimation  !== null ? typeAnimation === 'out' ? 'card--animation--out' : 'card--animation--in' : ''}`}>
+        <article
+            className={`card ${contact.liked ? 'card--liked' : ''} ${ typeAnimation  !== null ? typeAnimation === 'out' ? 'card--animation--out' : 'card--animation--in' : ''}`}
+            role='article-card'
+            aria-label={`Contact ${contact.first_name} ${contact.last_name}`}
+        >
 
             <div className={`card__container-avatar ${contact.liked ? 'card__container-avatar--liked' : ''}`}>
 
@@ -64,20 +67,22 @@ const CardContact: React.FC<CardContactProps> = ({ contact }) => {
 
             <footer className='card__footer'>
                 <hr />
-                <button onClick={ ()=> handleLikedContact()} className={`card__footer__button ${contact.liked ? 'card__footer__button--liked' : ''}`}>
-
-                    {
-                        contact.liked
-                            ? (
-                                <>
-                                    <CloseIcon />
-                                    <p>REMOVE</p>
-                                </>
-                            )
-                            : <HeartIcon />
-                    }
-
-                </button>
+                <button
+                    onClick={() => handleLikedContact()}
+                    className={`card__footer__button ${contact.liked ? 'card__footer__button--liked' : ''}`}
+                    aria-label={contact.liked ? 'Remove from favorites' : 'Add to favorites'}
+                    >
+                    {contact.liked ? (
+                        <>
+                            <CloseIcon aria-hidden="true" />
+                            <span className="sr-only">Remove</span>
+                        </>
+                    ) : (
+                        <>
+                        <HeartIcon aria-hidden="true" />
+                        </>
+                    )}
+                    </button>
 
             </footer>
         </article>
