@@ -3,11 +3,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 export interface MenuState {
   dropdownMenuVisible: boolean | null;
   formMenuVisible: boolean | null;
+  themeMenuVisible: boolean | null;
 }
 
 const initialState: MenuState = {
   dropdownMenuVisible: null,
   formMenuVisible: null,
+  themeMenuVisible:null,
 };
 
 const menuSlice = createSlice({
@@ -26,6 +28,15 @@ const menuSlice = createSlice({
       }
       state.formMenuVisible = !state.formMenuVisible;
     },
+    toggleThemeMenu: (state) => {
+      if(state.themeMenuVisible === null){
+        setThemeMenu(true);
+      }
+      state.themeMenuVisible = !state.themeMenuVisible;
+    },
+    setThemeMenu: (state, action: PayloadAction<boolean>) => {
+      state.themeMenuVisible = action.payload;
+    },
     setDropdownMenuVisibility: (state, action: PayloadAction<boolean>) => {
       state.dropdownMenuVisible = action.payload;
     },
@@ -35,6 +46,6 @@ const menuSlice = createSlice({
   },
 });
 
-export const { toggleDropdownMenu, toggleFormMenu, setDropdownMenuVisibility, setFormMenuVisibility } = menuSlice.actions;
+export const { toggleThemeMenu,toggleDropdownMenu, toggleFormMenu, setDropdownMenuVisibility, setFormMenuVisibility,setThemeMenu } = menuSlice.actions;
 
 export default menuSlice.reducer;

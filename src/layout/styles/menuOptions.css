@@ -38,7 +38,7 @@ li.menu-options__option{
 }
 li.menu-options__option a{
     text-decoration: none;
-    color: var(--white-color);
+    color: var(--option-text-color);
     font-size: 1.5rem;
     display: flex;
     gap: .5rem;
@@ -50,14 +50,14 @@ li.menu-options__option a{
 .menu-options__option a.active,
 .menu-options__option a.active svg path
 {
-    fill:rgba(0, 0, 0, 0.605) ;
-    color: rgba(0, 0, 0, 0.605); 
+    fill:var(--option-text--active-color) ;
+    color: var(--option-text--active-color); 
 }
 
 .menu-options__option:hover a,
 .menu-options__option:hover svg path{
-    fill:rgba(0, 0, 0, 0.336) ;
-    color: rgba(0, 0, 0, 0.336) ;
+    fill:var(--option-text--hover-color) ;
+    color: var(--option-text--hover-color) ;
 }
 
 li.menu-options__option a svg,
@@ -70,7 +70,7 @@ li.menu-options__option a svg path,
 .menu__header svg path
 {
 
-    fill: var(--white-color);
+    fill: var(--option-text-color);
 
 }
 
@@ -84,12 +84,15 @@ button.option__button {
     width: 7rem;
     height: 2rem;
     border-radius: .4rem;
-    background-color: var(--white-color);
+    background-color: var(--option-text-color);
+    color: var(--secondary-color);
     cursor: pointer;
     font-size: 1.3rem;
 }
-
-img.option__button__img {
-    width: 10rem;
-    height: 10rem;
+button.option__button svg path{
+    fill: var(--secondary-color);
+}
+button.option__button svg {
+    width: 2rem;
+    height: 2rem;
 }

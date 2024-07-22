@@ -10,6 +10,7 @@
     font-size: 1.4rem;
     font-weight: 500;
     width: 15rem;
+    color: var(--secondary-color);
 }
 
 .header-section__line{

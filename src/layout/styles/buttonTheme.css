@@ -1,0 +1,16 @@
+button.button_theme{
+    cursor: pointer;
+    border: none;
+    color: none;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button.button_theme svg{
+    height: 2rem;
+    width: 2rem;
+}
+button.button_theme svg path{
+    fill: var(--secondary-color);
+}

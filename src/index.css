@@ -1,21 +1,46 @@
-:root{
-
-    --primary-color:#C1D72F;
-    --primary-low-color: #c5d65985 ;
-    --secondary-color: #323232;
-    --warning-color:#CF6679;
-    --error-color:#e91414;
-    --dark-color: #231F20;
-    --white-color: #ffff;
-
-}
-
 *{
     margin: 0 ;
     padding: 0;
 }
 body{
     font-family: sans-serif;
+    background-color: var(--bg-color);
+   
+}
+
+:root{
+    --primary-color:#C1D72F;
+    --primary-low-color: #c5d65985 ;
+    /* --secondary-color: white; */
+    --secondary-color: #323232;
+    --warning-color:#CF6679;
+    --error-color:#e91414;
+    --option-text-color: #ffff;
+    --bg-color:#ffff;    
+    --option-text--active-color: #231F20;
+    --box-shadow-navbar: 0px 10px 6px -5px rgba(0, 0, 0, 0.1) ;
+    --box-shadow-card: 0px 0px 55px -8px rgba(0,0,0,0.1) ;
+    --bg-color-secondary:#ffff ;
+    --bg-color-secondary--hover:#e9e6e6;
+    --border-card: .8px solid #cbcbcb ;
+}
+
+[data-theme="dark"]{
+    --primary-color:#C1D72F;
+    --primary-low-color: #c5d65985 ;
+    --secondary-color: white;
+    --warning-color:#CF6679;
+    --error-color:#e91414;
+    --bg-color: #121112;
+    --option-text-color:#231F20;
+    --option-text--hover-color: #fffc;
+    --option-text--active-color: #ffff;
+    --bg-color-secondary:#121212;
+    --bg-color-secondary--hover:#2b2b2b;
+    --box-shadow-navbar: 0px 10px 6px -5px rgba(0, 0, 0, 0.385) ;
+    --box-shadow-card: 0px 0px 55px -8px rgba(0, 0, 0, 0.332) ;
+    
+    --border-card: .8px solid #1F1F1F ;
 }
 
 .list-contact{

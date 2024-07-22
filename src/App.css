@@ -1,3 +1,11 @@
+div.app{
+
+    background-color: var(--bg-color);
+}
+
 main{
     padding: 1rem 2rem;
+    background-color: var(--bg-color);
+    margin-top: .8rem;
+    z-index: -1;
 }

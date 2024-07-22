@@ -1,0 +1,25 @@
+ul.modal-option-theme{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    color: var(--secondary-color);
+    list-style: none;
+    background-color: var(--bg-color-secondary);
+    border: var(--border-card);
+}
+li.modal-option-theme__option{
+    cursor: pointer;
+    padding: .6rem;
+    transition: all .3s ease;
+}
+li.modal-option-theme__option:hover {
+    background-color:var(--bg-color-secondary--hover);
+}
+li.modal-option-theme__option svg{
+    height: 1.5rem;
+    width: 1.5rem;
+}
+li.modal-option-theme__option svg path
+{
+    fill: var(--secondary-color);
+}
