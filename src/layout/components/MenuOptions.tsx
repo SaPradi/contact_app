@@ -22,8 +22,8 @@ const MenuOptions:React.FC = () => {
   return (
     <div className='menu'>
 
-      <div className='menu__header' aria-label="button_menu_header">
-        <button onClick={()=> dispath(toggleDropdownMenu())}>
+      <div className='menu__header' >
+        <button onClick={()=> dispath(toggleDropdownMenu())} aria-label="close button menu">
           <CloseIcon />
         </button>
       </div>
@@ -53,7 +53,7 @@ const MenuOptions:React.FC = () => {
 
         <li className="menu-options__option" id="optionFour" role="option">
           <button onClick={openForm} className="option__button" id="buttonOptionNew" role="optionBottom" aria-haspopup="true"
-              aria-expanded="false" aria-controls="new-menu">
+              aria-expanded="false" aria-controls="new-menu" aria-label='new contact button'>
               <AddIcon/>
               <p>New</p>
           </button>
