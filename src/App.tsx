@@ -8,6 +8,7 @@ import { fetchContacts } from "./store/contactSlice";
 import { AppDispatch, RootState } from "./store/store";
 import { useSelector } from "react-redux";
 import { setTheme, setThemeLocalStorage,setThemeSystem } from "./store/themeSlice";
+import { setDropdownMenuVisibility, setThemeMenu } from "./store/menuSlice";
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -37,11 +38,16 @@ function App() {
 
   },[])
 
+  const closeMenus = ()=>{
+    dispatch(setThemeMenu(false))
+    dispatch(setDropdownMenuVisibility(false))
+  }
+
   return (
     <div className="app" data-theme={themePreference}>
       <Navbar/>
       <NewContactForm/>
-      <main>
+      <main onClick={()=>{closeMenus()}}>
         <Outlet />
       </main>
     </div>
