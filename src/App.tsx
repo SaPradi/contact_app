@@ -13,6 +13,7 @@ import { setDropdownMenuVisibility, setThemeMenu } from "./store/menuSlice";
 function App() {
   const dispatch = useDispatch<AppDispatch>();
   const { themePreference } = useSelector((state:RootState)=> state.theme);
+  const { themeMenuVisible,dropdownMenuVisible } = useSelector((state:RootState)=>state.menu)
 
   useEffect(()=>{
     dispatch(fetchContacts())
@@ -39,8 +40,12 @@ function App() {
   },[])
 
   const closeMenus = ()=>{
-    dispatch(setThemeMenu(false))
-    dispatch(setDropdownMenuVisibility(false))
+    if(themeMenuVisible){
+      dispatch(setThemeMenu(false))
+    }
+    if(dropdownMenuVisible){
+      dispatch(setDropdownMenuVisibility(false))
+    }
   }
 
   return (

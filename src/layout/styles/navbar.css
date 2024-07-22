@@ -1,7 +1,9 @@
 header.navbar {
 
     background-color: var(--bg-color);
-    box-shadow: var(--box-shadow-navbar);
+    /* box-shadow: var(--box-shadow-navbar); */
+    border-block-end: var(--border-navbar) ;
+    border:.4;
     z-index: 1;
 }
 

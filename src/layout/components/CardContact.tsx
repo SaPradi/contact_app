@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import CloseIcon from '../../icons/CloseIcon';
 import HeartIcon from '../../icons/HeartIcon';
 import { Contact } from '../../interfaces';
 import '../styles/cardContact.css';
@@ -8,6 +7,7 @@ import { AppDispatch, RootState } from '../../store/store';
 import { setStatusAnimationCard, toggleLiked } from '../../store/contactSlice';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import HeartBroken from '../../icons/HeartBroken';
 
 interface CardContactProps {
     contact: Contact
@@ -74,7 +74,7 @@ const CardContact: React.FC<CardContactProps> = ({ contact }) => {
                     >
                     {contact.liked ? (
                         <>
-                            <CloseIcon aria-hidden="true" />
+                            <HeartBroken aria-hidden="true" />
                             <span className="sr-only">Remove</span>
                         </>
                     ) : (

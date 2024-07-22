@@ -1,4 +1,4 @@
-.favorites__empty{
+.contacts_empty{
     width: 100%;
     display: flex;
     justify-content: center;
@@ -7,18 +7,17 @@
     margin: 2rem 0 2rem;
 }
 
-.favorites__empty p.favorites__empty__text{
+.contacts_empty p.contacts_empty__text{
     font-size: 1.5rem;
     color: var(--text-light-color);
     text-align: center;
 }
 
-.favorites__empty svg{
-    
+.contacts_empty svg{
     height: 1.6rem ;
     width: 1.6rem;
+} 
 
-}
-.favorites__empty svg path{
+.contacts_empty  svg path{
     fill:var(--text-light-color) ;
 }
