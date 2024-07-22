@@ -8,7 +8,7 @@
 }
 
 .contacts_empty p.contacts_empty__text{
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: var(--text-light-color);
     text-align: center;
 }
@@ -20,4 +20,14 @@
 
 .contacts_empty  svg path{
     fill:var(--text-light-color) ;
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+
+
+    .contacts_empty p.contacts_empty__text{
+        font-size: 1.5rem;
+    }
+
 }
