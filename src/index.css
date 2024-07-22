@@ -22,6 +22,7 @@ body{
     --bg-color-secondary:#ffff ;
     --bg-color-secondary--hover:#e9e6e6;
     --border-card: .8px solid #cbcbcb ;
+
 }
 
 [data-theme="dark"]{

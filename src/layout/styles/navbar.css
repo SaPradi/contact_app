@@ -134,18 +134,20 @@ li.navbar__options__option button.option__button {
     background-color: var(--primary-color);
     cursor: pointer;
     z-index: 1;
+    transition: all .4s ease;
 }
+li.navbar__options__option button.option__button:hover{
 
+    background-color: var(--primary-low-color);
+
+}
 li.navbar__options__option button.option__button svg {
-
     width: 2rem;
     height: 2rem;
-
 }
 
 li.navbar__options__option button.option__button svg path {
     fill: var(--secondary-color);
-
 }
 
 
