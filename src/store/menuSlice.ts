@@ -6,7 +6,7 @@ export interface MenuState {
   themeMenuVisible: boolean | null;
 }
 
-const initialState: MenuState = {
+export const initialState: MenuState = {
   dropdownMenuVisible: null,
   formMenuVisible: null,
   themeMenuVisible:null,

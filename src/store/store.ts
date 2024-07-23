@@ -1,16 +1,22 @@
-
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import menuReducer from './menuSlice';
-import contactSlice from './contactSlice';
-import themeSlice from './themeSlice';
+import contactReducer from './contactSlice';
+import themeReducer from './themeSlice';
 
-export const store = configureStore({
-  reducer: {
+const rootReducer = combineReducers({
     menu: menuReducer,
-    contact:contactSlice,
-    theme:themeSlice,
-  },
-});
+    contact: contactReducer,
+    theme: themeReducer,
+})
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+
+export const setupStore = (preloadedState?: Partial<RootState>) => {
+    return configureStore({
+      reducer: rootReducer,
+      preloadedState
+    })
+  }
+
+export type RootState = ReturnType<typeof rootReducer>
+export type AppStore = ReturnType<typeof setupStore>
+export type AppDispatch = AppStore['dispatch']

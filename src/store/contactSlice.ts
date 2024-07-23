@@ -1,9 +1,21 @@
 import { AsyncThunk, createAsyncThunk, createSlice, PayloadAction, SerializedError } from '@reduxjs/toolkit';
-import { Contact, ContactResponse, ContactsResponse, ContactData, ContactsState, IstatusAnimationCard } from '../interfaces';
+import { Contact, ContactResponse, ContactsResponse, ContactData } from '../interfaces';
 import { createConctact, getContacts } from '../services/contact.service';
 import { AppDispatch, RootState } from './store';
 
-
+export interface IstatusAnimationCard{
+    status: 'in' | 'out';
+    contactId:number;
+}
+  
+export interface ContactsState {
+    contacts: Contact[];
+    favorites: Contact[];
+    loadingContacts: boolean;
+    loadingCreatedContact: boolean;
+    error: string | null;
+    statusAnimationCard:null|IstatusAnimationCard
+}
 
 type AsyncThunkConfig = {
     state: RootState;
@@ -20,7 +32,7 @@ const mappingContact = (contact: Contact, index: number, totalContacts: number) 
     return { ...contact, liked };
 };
 
-const initialState: ContactsState = {
+export const initialState: ContactsState = {
     contacts: [],
     favorites: [],
     loadingContacts: false,

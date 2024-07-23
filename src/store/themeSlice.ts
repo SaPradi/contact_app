@@ -5,7 +5,7 @@ export interface ThemeSlice{
     themePreference: 'dark' | 'light';
 }
 
-const initialState:ThemeSlice = {
+export const initialState:ThemeSlice = {
     themePreference:'light'
 }
 

@@ -8,7 +8,7 @@ interface titleHeaderProps {
 const TitleHeader:React.FC<titleHeaderProps> = ({title}) => {
   return (
       <div className="header-section">
-        <h1 className='header-section__title'> {title} </h1>
+        <h1 className='header-section__title'>{title}</h1>
         <hr className='header-section__line'/>
       </div>
   )

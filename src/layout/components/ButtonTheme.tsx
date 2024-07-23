@@ -14,7 +14,7 @@ const ButtonTheme:React.FC = () => {
 
   return (
 
-    <button className='button_theme' onClick={()=> dispatch(toggleThemeMenu())}>
+    <button className='button_theme' aria-label="toggle button theme" onClick={()=> dispatch(toggleThemeMenu())}>
         {
           themePreference === 'dark'
           ? <DarkThemeIcon/>
