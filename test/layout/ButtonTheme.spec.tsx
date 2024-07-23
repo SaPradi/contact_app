@@ -19,9 +19,7 @@ describe('Testing in <ButtonTheme/> ',()=>{
     
         const { store } = renderWithProviders(<ButtonTheme />);
         
-        // Encuentra el botón
         const button = screen.getByLabelText(/toggle button theme/i);
-        // Hace clic en el botón
         await userEvent.click(button);
       
         const state = store.getState();
