@@ -2,11 +2,13 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import menuReducer from './menuSlice';
 import contactReducer from './contactSlice';
 import themeReducer from './themeSlice';
+import modalSlice from './modalSlice';
 
 const rootReducer = combineReducers({
     menu: menuReducer,
     contact: contactReducer,
     theme: themeReducer,
+    modal:modalSlice,
 })
 
 

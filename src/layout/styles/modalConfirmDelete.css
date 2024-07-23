@@ -1,0 +1,49 @@
+.modal-confirm-delete{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+.modal-confirm-delete__bottons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.modal-confirm-delete__bottons button{
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    border: 2px solid var(--primary-color);
+    background: none;
+    border-radius: .2rem;
+    padding: .4rem;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--primary-color);
+}
+.modal-confirm-delete__bottons button.modal-confirm-delete__bottons__close{
+    color: var(--warning-color);
+    border-color: var(--warning-color);
+}
+.modal-confirm-delete__bottons button.modal-confirm-delete__bottons__close:hover{
+    background-color: #cf667947;
+}
+.modal-confirm-delete__bottons button.modal-confirm-delete__bottons__delete:hover{
+    background-color: #c1d72f65;
+}
+.modal-confirm-delete__bottons button svg{
+    height: 1rem;
+    width: 1rem;
+}
+
+.modal-confirm-delete__bottons button.modal-confirm-delete__bottons__delete svg path{
+    fill: var(--primary-color);
+}
+.modal-confirm-delete__bottons button.modal-confirm-delete__bottons__close svg path{
+    fill: var(--warning-color);
+}

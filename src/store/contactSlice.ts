@@ -15,6 +15,7 @@ export interface ContactsState {
     loadingCreatedContact: boolean;
     error: string | null;
     statusAnimationCard:null|IstatusAnimationCard
+    contactDeleted:null|Contact
 }
 
 type AsyncThunkConfig = {
@@ -39,6 +40,7 @@ export const initialState: ContactsState = {
     loadingCreatedContact: false,
     error: null,
     statusAnimationCard: null,
+    contactDeleted:null
 }
 
 interface toggleLikedParams{
@@ -67,6 +69,17 @@ const contactSlice = createSlice({
     name: 'contact',
     initialState,
     reducers: {
+
+        setContactDelete:(state,action:PayloadAction<Contact>)=>{
+            state.contactDeleted =  action.payload;
+        },
+
+        clearContactDelete:(state)=>{
+
+            state.contactDeleted = null;
+
+        },
+
         setStatusAnimationCard:(state,action:PayloadAction<null | IstatusAnimationCard>)=>{
             state.statusAnimationCard = action.payload
         },
@@ -98,6 +111,16 @@ const contactSlice = createSlice({
               }
             }
 
+        },
+        removeContact:(state)=>{
+            if(state.contactDeleted){
+                const { liked,id } = state.contactDeleted;
+                // remove
+                const array: ArrayType = liked ? 'favorites' : 'contacts';
+                const fromIndex = state[array].findIndex(c => c.id === id);
+                state[array].splice(fromIndex, 1);
+                state.contactDeleted = null;
+            }
         }
     },
     extraReducers: (builder) => {
@@ -138,6 +161,6 @@ const contactSlice = createSlice({
     }
 })
 
-export const {  toggleLiked,setStatusAnimationCard } = contactSlice.actions;
+export const { setContactDelete,clearContactDelete, removeContact,toggleLiked,setStatusAnimationCard } = contactSlice.actions;
 
 export default contactSlice.reducer;
