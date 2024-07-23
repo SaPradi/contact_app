@@ -12,7 +12,7 @@ describe('Testing in <Modal/>', () => {
       };
 
     test('Should math with the snapshot', () => {
-
+      
         const { container } = renderWithProviders(
             <Modal renderContent={ ()=> <div> Cualquier texto </div>} /> ,
             { preloadedState }
@@ -35,7 +35,11 @@ describe('Testing in <Modal/>', () => {
 
 
     test('Should close the modal when the close button is clicked', async() => {
-        const { store } = renderWithProviders(<Modal renderContent={() => <div>Content</div>} />, { preloadedState });
+        
+        const { store } = renderWithProviders(
+            <Modal renderContent={() => <div>Cualquier texto</div>} />, 
+            { preloadedState }
+        );
 
         const closeButton = screen.getByRole('button');
         await userEvent.click(closeButton);
