@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing in <ListSkeletonCardContact/> Should match with the snapshot 1`] = `
+<div>
+  <div
+    class="list-contact"
+  >
+    <div
+      class="card__skeleton"
+      data-testid="card-skeleton"
+    >
+      <div
+        class="card__skeleton__avatar"
+      />
+      <div
+        class="card__skeleton__content"
+      >
+        <div
+          class="card__skeleton__name"
+        />
+        <div
+          class="card__skeleton__email"
+        />
+      </div>
+      <div
+        class="card__skeleton__footer"
+      >
+        <hr />
+        <div
+          class="card__skeleton__footer__button"
+        />
+      </div>
+    </div>
+    <div
+      class="card__skeleton"
+      data-testid="card-skeleton"
+    >
+      <div
+        class="card__skeleton__avatar"
+      />
+      <div
+        class="card__skeleton__content"
+      >
+        <div
+          class="card__skeleton__name"
+        />
+        <div
+          class="card__skeleton__email"
+        />
+      </div>
+      <div
+        class="card__skeleton__footer"
+      >
+        <hr />
+        <div
+          class="card__skeleton__footer__button"
+        />
+      </div>
+    </div>
+    <div
+      class="card__skeleton"
+      data-testid="card-skeleton"
+    >
+      <div
+        class="card__skeleton__avatar"
+      />
+      <div
+        class="card__skeleton__content"
+      >
+        <div
+          class="card__skeleton__name"
+        />
+        <div
+          class="card__skeleton__email"
+        />
+      </div>
+      <div
+        class="card__skeleton__footer"
+      >
+        <hr />
+        <div
+          class="card__skeleton__footer__button"
+        />
+      </div>
+    </div>
+    <div
+      class="card__skeleton"
+      data-testid="card-skeleton"
+    >
+      <div
+        class="card__skeleton__avatar"
+      />
+      <div
+        class="card__skeleton__content"
+      >
+        <div
+          class="card__skeleton__name"
+        />
+        <div
+          class="card__skeleton__email"
+        />
+      </div>
+      <div
+        class="card__skeleton__footer"
+      >
+        <hr />
+        <div
+          class="card__skeleton__footer__button"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

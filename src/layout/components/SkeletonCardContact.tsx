@@ -2,7 +2,7 @@ import '../styles/skeletonCardContact.css';
 
 const SkeletonCardContact:React.FC = () => {
   return (
-    <div className='card__skeleton'>
+    <div className='card__skeleton' data-testid="card-skeleton">
       
         <div className="card__skeleton__avatar"></div>
 

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing in <TitleHeader> Should match with the snapshot 1`] = `
+<div>
+  <div
+    class="header-section"
+  >
+    <h1
+      class="header-section__title"
+    >
+      Contact
+    </h1>
+    <hr
+      class="header-section__line"
+    />
+  </div>
+</div>
+`;

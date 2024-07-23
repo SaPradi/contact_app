@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing in <AvatarLetter> Should match with the snapshot 1`] = `
+<div>
+  <div
+    class="avatar"
+  >
+    <p
+      class="avatar__letter"
+    >
+       
+      SP
+       
+    </p>
+  </div>
+</div>
+`;
