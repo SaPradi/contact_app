@@ -18,9 +18,7 @@ const Modal: React.FC<ModalProps> = ({ renderContent }) => {
     if(!isOpen) return null;
 
     const handleCloseModal = ()=>{
-        setTimeout(()=>{
-            dispatch(closeModal())
-        },500)
+        dispatch(closeModal())
     }
 
     return (
