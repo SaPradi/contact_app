@@ -64,7 +64,9 @@ article.card--liked{
     margin-bottom: .5rem;   
 }
 
-.card__footer__button{
+.card__footer__button,
+.card__footer__button__delete
+{
     display: flex;
     align-items: center;
     gap: .6rem;
@@ -96,7 +98,9 @@ article.card--liked{
 
 
 
-.card__footer__button--liked:hover{
+.card__footer__button--liked:hover,
+.card__footer__button__delete:hover
+{
     background-color: #cf667947;
 }
 
@@ -110,6 +114,26 @@ article.card--liked{
 .card--animation--out {
     animation: scale-out-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
+
+.card__footer__button__delete{
+    color: var(--warning-color);
+    border-color: var(--warning-color);
+}
+.card__footer__button__delete svg{
+    height: 1rem;
+    width: 1rem;
+}
+.card__footer__button__delete svg path{
+
+    fill: var(--warning-color);
+}
+
+.card__footer__buttons{
+
+    display: flex;
+
+}
+
 
 @keyframes scale-out-center {
     0% {

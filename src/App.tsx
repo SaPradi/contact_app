@@ -9,12 +9,15 @@ import { AppDispatch, RootState } from "./store/store";
 import { useSelector } from "react-redux";
 import { setTheme, setThemeLocalStorage,setThemeSystem } from "./store/themeSlice";
 import { setDropdownMenuVisibility, setThemeMenu } from "./store/menuSlice";
+import Modal from "./layout/components/Modal";
+import ModalConfirmDelete from "./layout/components/ModalConfirmDelete";
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
   const { themePreference } = useSelector((state:RootState)=> state.theme);
   const { themeMenuVisible,dropdownMenuVisible } = useSelector((state:RootState)=>state.menu)
-
+  const { isOpen } = useSelector((state:RootState)=>state.modal)
+  
   useEffect(()=>{
     dispatch(fetchContacts())
   },[dispatch]);
@@ -50,6 +53,8 @@ function App() {
 
   return (
     <div className="app" data-theme={themePreference}>
+      {isOpen && <Modal renderContent={() => <ModalConfirmDelete />} />}
+
       <Navbar/>
       <NewContactForm/>
       <main onClick={()=>{closeMenus()}}>
