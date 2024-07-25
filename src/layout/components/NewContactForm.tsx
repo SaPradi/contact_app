@@ -26,7 +26,6 @@ const NewContactForm: React.FC = () => {
     const submitHandler = (e: React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
         if(formValid){
-            console.log(formValues)
             dispatch(fetchCreateContact(formValues));
             dispatch(toggleFormMenu())
             clear();
